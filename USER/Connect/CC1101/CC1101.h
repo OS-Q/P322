@@ -3,7 +3,7 @@
 #define CC1101_H
 
 #include "map.h"
-
+#include  "SPI.h"
 
 #define  RF_MODE_FIFO        0
 #define  RF_MODE_HEAR     0X01

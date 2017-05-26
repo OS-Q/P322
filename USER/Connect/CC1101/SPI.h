@@ -20,14 +20,15 @@
 
 
 
-#define CSn_LOW   GPIO_ResetBits(SPI_PORT, SPI_CS)
-#define CSn_HIGH  GPIO_SetBits(SPI_PORT, SPI_CS)
+#define CSn_LOW      GPIO_ResetBits(SPI_PORT, SPI_CS)
+#define CSn_HIGH     GPIO_SetBits(SPI_PORT, SPI_CS)
 
 #define GDO0_LOW_WAIT()   while(1==GPIO_ReadInputDataBit(GDO0_PORT,GDO0_Pin))  
 #define GDO0_HIGH_WAIT()  while(0==GPIO_ReadInputDataBit(GDO0_PORT,GDO0_Pin)) 
 
 #define GDO2_LOW_WAIT()   while(1==GPIO_ReadInputDataBit(GDO2_PORT,GDO2_Pin))  
 #define GDO2_HIGH_WAIT()  while(0==GPIO_ReadInputDataBit(GDO2_PORT,GDO2_Pin))  
+	
 
 
 //-------------------------------------------------------------------------------------------------------

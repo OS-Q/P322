@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Obj\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Obj\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Fri May 26 11:30:11 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Fri May 26 15:13:29 2017
 <BR><P>
 <H3>Maximum Stack Usage =         80 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -98,7 +98,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[6f]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[70]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[49]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -108,15 +108,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[70]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[71]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[71]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[72]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[72]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[73]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[73]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[74]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[74]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[75]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
@@ -305,12 +305,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[75]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[76]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[4c]"></a>CC1101_Init</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, cc1101.o(i.CC1101_Init))
+<P><STRONG><a name="[4c]"></a>CC1101_Init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, cc1101.o(i.CC1101_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = CC1101_Init &rArr; RF_SetPWR &rArr; halSpiWriteBurstReg &rArr; halSpiByteWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
@@ -342,7 +342,7 @@ Global Symbols
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_RESET
 </UL>
 
-<P><STRONG><a name="[32]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, cc1101.o(i.EXTI15_10_IRQHandler))
+<P><STRONG><a name="[32]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 144 bytes, Stack size 8 bytes, cc1101.o(i.EXTI15_10_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = EXTI15_10_IRQHandler &rArr; RX_GDO &rArr; halSpiReadBurstReg &rArr; halSpiByteWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
@@ -368,7 +368,7 @@ Global Symbols
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GDO0_IRQ
 </UL>
 
-<P><STRONG><a name="[54]"></a>GDO0_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, hal.o(i.GDO0_IRQ))
+<P><STRONG><a name="[54]"></a>GDO0_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, spi.o(i.GDO0_IRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GDO0_IRQ &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -382,7 +382,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CC1101_Init
 </UL>
 
-<P><STRONG><a name="[55]"></a>GDO1_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, hal.o(i.GDO1_IRQ))
+<P><STRONG><a name="[55]"></a>GDO1_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, spi.o(i.GDO1_IRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GDO1_IRQ &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -396,7 +396,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CC1101_Init
 </UL>
 
-<P><STRONG><a name="[56]"></a>GDO2_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, hal.o(i.GDO2_IRQ))
+<P><STRONG><a name="[56]"></a>GDO2_IRQ</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, spi.o(i.GDO2_IRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GDO2_IRQ &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -427,7 +427,7 @@ Global Symbols
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GDO0_IRQ
 </UL>
 
-<P><STRONG><a name="[6e]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
+<P><STRONG><a name="[6f]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
 <BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiByteRead
 </UL>
 
@@ -535,6 +535,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
 </UL>
 
+<P><STRONG><a name="[6e]"></a>SPI_I2S_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus))
+<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiByteWrite
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiByteRead
+</UL>
+
 <P><STRONG><a name="[6]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
@@ -577,11 +582,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CC1101_Init
 </UL>
 
-<P><STRONG><a name="[76]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[77]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[77]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[78]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[78]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[79]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[64]"></a>halRfWriteReg</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, cc1101.o(i.halRfWriteReg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = halRfWriteReg &rArr; halSpiByteWrite
@@ -596,7 +601,7 @@ Global Symbols
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_SetADR
 </UL>
 
-<P><STRONG><a name="[4d]"></a>halRf_Init</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, hal.o(i.halRf_Init))
+<P><STRONG><a name="[4d]"></a>halRf_Init</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, spi.o(i.halRf_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = halRf_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -605,24 +610,26 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CC1101_Init
 </UL>
 
-<P><STRONG><a name="[6d]"></a>halSpiByteRead</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, hal.o(i.halSpiByteRead))
+<P><STRONG><a name="[6d]"></a>halSpiByteRead</STRONG> (Thumb, 170 bytes, Stack size 16 bytes, spi.o(i.halSpiByteRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = halSpiByteRead
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_us
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_GetFlagStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiReadStatus
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiReadBurstReg
 </UL>
 
-<P><STRONG><a name="[6c]"></a>halSpiByteWrite</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, hal.o(i.halSpiByteWrite))
+<P><STRONG><a name="[6c]"></a>halSpiByteWrite</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, spi.o(i.halSpiByteWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = halSpiByteWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_us
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_GetFlagStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiWriteBurstReg
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;halSpiStrobe

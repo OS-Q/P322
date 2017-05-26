@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include  "regs.h"
 #include  "CC1101.h"
-#include  "hal.h"
 
 #define  PKT_LEN   60
 #define  RX_FLAG  (halSpiReadStatus(RXBYTES)& NUM_RXBYTES)
@@ -24,13 +23,14 @@ void CC1101_Init(void)
 {
 	  u8 addr[3]={1,0X34,0X56};
     //halSpi_Init(); 
-		halRf_Init(); 
-		
+		halRf_Init(); 		
     POWER_RESET();
     WriteRfSettings(); 
 	  RF_SetPWR(0x18);	
 	  RF_SetADR(addr);
 		RF_RX();
+		RF_CNT[0]=0;
+		RF_CNT[1]=0;	
 		Delay_ms(1);
 		GDO0_IRQ();
 		GDO1_IRQ();
@@ -347,6 +347,53 @@ u8 GetRSSI(u8 rssi_dec)
 
 
 /*******************************************************************************
+* Function Name  : RF_SetMode
+*******************************************************************************/
+u16 RF_GetTemp(void)
+{ 
+	  u16 AD_value[5]={0};	
+    u8 cnt;		
+		//halRfWriteReg(PTEST, 0xBF);
+		halRfWriteReg(IOCFG0,0x80);
+		Delay_ms(40);
+	  ADC_GDO();
+		for(cnt=0;cnt<3;cnt++)
+		{
+				if(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)==SET)
+				{
+						AD_value[cnt]=ADC_GetConversionValue(ADC1);	
+				}
+		}		
+		//halRfWriteReg(IOCFG0,0x0e);
+		return AD_value[0];
+}
+/*******************************************************************************
+* Function Name  : ADC_GDO
+* Description    : Configure the ADC.
+*******************************************************************************/
+void ADC_GDO(void)
+{
+			GPIO_InitTypeDef GPIO_InitStructure;
+			ADC_InitTypeDef ADC_InitStructure;
+			RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1|RCC_APB2Periph_GPIOA |RCC_APB2Periph_AFIO, ENABLE);		
+			GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+			GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+			GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+			GPIO_Init(GPIOA, &GPIO_InitStructure);   		
+	
+			ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;	   
+			ADC_InitStructure.ADC_ScanConvMode = ENABLE;			     
+			ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;	        
+			ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;  
+			ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;		     
+			ADC_InitStructure.ADC_NbrOfChannel = 1;					         
+			ADC_Init(ADC1, &ADC_InitStructure);
+
+			ADC_RegularChannelConfig(ADC1, ADC_Channel_7, 1, ADC_SampleTime_239Cycles5);
+			ADC_Cmd(ADC1, ENABLE);                                                       
+			ADC_SoftwareStartConvCmd(ADC1,ENABLE);                 
+}
+/*******************************************************************************
 * Function Name  : RF_RX
 *******************************************************************************/
 void RF_END(void)
@@ -422,19 +469,21 @@ void EXTI15_10_IRQHandler(void)
 		{
 				 EXTI_ClearITPendingBit(EXTI_Line10);
 				 if(CC1101_Mode==0)	CC1101_Mode=RF_TX_Finish;
-				 else if(CC1101_Mode==RF_RX_Flag)  RX_GDO(0) ;				
+				 else if(CC1101_Mode==RF_RX_Flag)  RX_GDO(0) ;	
+				 RF_CNT[1]++;				
 		}	
 		else if(EXTI_GetITStatus(EXTI_Line11) != RESET ) 
 		{			
 					EXTI_ClearITPendingBit(EXTI_Line11);
 					if(CC1101_Mode==RF_RX_Flag) RX_GDO(2);
+					RF_CNT[0]++;
 		}	
 		else if(EXTI_GetITStatus(EXTI_Line14) != RESET ) 
 		{		
 					EXTI_ClearITPendingBit(EXTI_Line14);				
 					if(CC1101_Mode==RF_TX_Flag)
 					CC1101_Mode=RF_TX_Finish;
-//					else if(CC1101_Mode==RF_RX_Flag)
-//						RX_GDO(1);
+//				else if(CC1101_Mode==RF_RX_Flag)
+//				RX_GDO(1);
 		}	
 }

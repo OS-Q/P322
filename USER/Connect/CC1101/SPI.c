@@ -50,7 +50,70 @@ void halSpi_Init(void)
 		SPI_Cmd(SPI2, ENABLE); 
     SPI_MODE=1; 		
 }
+/*******************************************************************************
+* Function Name  : RF_HalInit
+*******************************************************************************/
+void SpiDMA_Init(void)
+{
+	      DMA_InitTypeDef  DMA_InitStructure;
+        NVIC_InitTypeDef NVIC_InitStructure;
+				DMA_DeInit(DMA1_Channel4);
+        DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(&SPI2->DR);
+        DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)SPI2_Rx_Buf;
+        DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+        DMA_InitStructure.DMA_BufferSize = 0;
+        DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+        DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+        DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+        DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+        DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+        DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
+        DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+        DMA_Init(DMA1_Channel4, &DMA_InitStructure);
 
+        if(DMA_GetITStatus(DMA1_IT_TC4)!= RESET)
+				{
+            DMA_ClearITPendingBit(DMA1_IT_TC4);
+        }
+        DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);
+        SPI_I2S_DMACmd(SPI2, SPI_I2S_DMAReq_Rx, ENABLE);
+        /* Enable DMA1 Channel4 SPI2_RX */
+        DMA_Cmd(DMA1_Channel4, DISABLE);
+        /* DMA1 Channel5 Configures for SPI2 Send */
+        DMA_DeInit(DMA1_Channel5);
+        DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(&SPI2->DR);
+        DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)SPI2_Tx_Buf;
+        DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+        DMA_InitStructure.DMA_BufferSize = 0;
+        DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+        DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+        DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+        DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+        DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+        DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
+        DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+        DMA_Init(DMA1_Channel5, &DMA_InitStructure);
+
+        if(DMA_GetITStatus(DMA1_IT_TC5)!= RESET)
+				{
+             DMA_ClearITPendingBit(DMA1_IT_TC5);
+        }
+        DMA_ITConfig(DMA1_Channel5, DMA_IT_TC, ENABLE);
+        SPI_I2S_DMACmd(SPI2, SPI_I2S_DMAReq_Tx, ENABLE);
+
+        /* Enable DMA1 Channel5 SPI1_TX */
+        DMA_Cmd(DMA1_Channel5, DISABLE);
+
+        /* Enable the DMA1_Channel4?DMA1_Channel5 Interrupt */
+        NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel4_IRQn;
+        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+        NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+        NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+        NVIC_Init(&NVIC_InitStructure);
+
+        NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel5_IRQn;
+        NVIC_Init(&NVIC_InitStructure);
+}
 /*******************************************************************************
 * Function Name  : RF_HalInit
 *******************************************************************************/
@@ -58,6 +121,7 @@ void halRf_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;	
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+		RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE); 
     // CSn + SCLK + MOSI
     GPIO_InitStructure.GPIO_Pin   = SPI_CS | SPI_SCK | SPI_MOSI;
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;

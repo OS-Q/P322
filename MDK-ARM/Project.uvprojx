@@ -553,9 +553,9 @@
               <FilePath>..\USER\Connect\CC1101\CC1101.c</FilePath>
             </File>
             <File>
-              <FileName>hal.c</FileName>
+              <FileName>SPI.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\USER\Connect\CC1101\hal.c</FilePath>
+              <FilePath>..\USER\Connect\CC1101\SPI.c</FilePath>
             </File>
           </Files>
         </Group>

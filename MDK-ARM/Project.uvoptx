@@ -183,7 +183,7 @@
           <Type>0</Type>
           <LineNumber>62</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221494</Address>
+          <Address>134221706</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -199,7 +199,7 @@
           <Type>0</Type>
           <LineNumber>421</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218260</Address>
+          <Address>134219962</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -308,7 +308,7 @@
 
   <Group>
     <GroupName>Main</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -723,8 +723,8 @@
       <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\USER\Connect\CC1101\hal.c</PathWithFileName>
-      <FilenameWithoutPath>hal.c</FilenameWithoutPath>
+      <PathWithFileName>..\USER\Connect\CC1101\SPI.c</PathWithFileName>
+      <FilenameWithoutPath>SPI.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
