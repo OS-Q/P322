@@ -1,0 +1,8 @@
+Keil/Obj/
+Keil/list/
+Keil/DebugConfig/
+Keil/*.uvgui.*
+Keil/*.uvgui*
+Keil/*.uvop*
+Keil/*.uvguix.*
+Keil/*.txt
