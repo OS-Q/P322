@@ -1,6 +1,4 @@
-﻿[![sites](qitas/Qi.png)](http://www.qitas.cn)
-
-# sub-1GHz无线通信 （www.mcuyun.com）
+﻿# sub-1GHz无线通信 （www.mcuyun.com）
 
 ### 项目描述
 
@@ -10,12 +8,6 @@
 
 ## 组成
 
-
-
----
-## 说明
-
-2018-10-15: 规范该仓库
 
 ---
 ## 为锻造最美之器
