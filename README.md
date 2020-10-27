@@ -1,26 +1,15 @@
-﻿# [sub1GHz](https://github.com/Qitas/Sub1GHz) 
+﻿# [无线控制终端](https://github.com/OS-Q/W08)
 
-#### qitas@qitas.cn
+[![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
 
-## [简介](https://github.com/Qitas/Sub1GHz/wiki)
+### [FOC描述](https://github.com/OS-Q/W08/wiki)
 
-使用Sub1GHz射频器件进行短距通信
+[无线控制终端](https://github.com/OS-Q/W08)
 
-工程包括可以直接编译执行的CC1101工程代码，和其他通信芯片的驱动代码
+### [收录资源](https://github.com/OS-Q/)
 
-## [组成](qitas/)
+* [文档](docs/)
+* [资源](src/)
+* [工程](project/)
 
-#### [项目文档](docs/)
-
-包括软硬件资源
-
-#### [项目资源](project/)
-
-包括源码工程
-
-
----
-
-## 锻造最美之器
-
-[![sites](qitas/qitas.png)](http://www.qitas.cn)
+### [OS-Q = Open Solutions | Open Source | Operating System ](http://www.OS-Q.com)
